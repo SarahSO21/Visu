@@ -37,7 +37,7 @@ if(isset($_POST['sub'])){
     Entrar
   </title>
   <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link href="https:/soft-ui-dashboard-main /fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="soft-ui-dashboard-main/assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="soft-ui-dashboard-main/assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -55,7 +55,7 @@ if(isset($_POST['sub'])){
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
           <div class="container-fluid pe-0">
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="soft-ui-dashboard-main/pages/dashboard.html">
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="inicio.php">
               VISUCARD
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -97,13 +97,13 @@ if(isset($_POST['sub'])){
               <div class="card card-plain mt-8">
                 <div class="card-header pb-0 text-left bg-transparent">
                   <h3 class="font-weight-bolder text-info text-gradient">Bem-Vindo de volta!</h3>
-                  <p class="mb-0">Insira seu CPF e senha para entrar</p>
+                  <p class="mb-0">Insira seu email e senha para entrar</p>
                 </div>
                 <div class="card-body">
-                  <form role="form">
-                    <label>CPF</label>
+                  <form method="POST" enctype="multipart/form-data" role="form">
+                    <label>Email</label>
                     <div class="mb-3">
-                      <input type="email" class="form-control" placeholder="CPF" aria-label="Email" aria-describedby="email-addon">
+                      <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                     </div>
                     <label>Senha</label>
                     <div class="mb-3">

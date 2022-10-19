@@ -38,7 +38,7 @@ CREATE TABLE `city` (
 
 INSERT INTO `city` (`idCity`, `nameCity`) VALUES
 (1, 'Campinas'),
-(2, 'Ortolândia'),
+(2, 'Hortolândia'),
 (4, 'Sumaré');
 
 -- --------------------------------------------------------
