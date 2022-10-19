@@ -1,38 +1,51 @@
-<!--
-=========================================================
-* Soft UI Dashboard - v1.0.6
-=========================================================
+<?php
 
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
+// Conexão com banco de dados 
+include'connect.php';
 
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
+if(isset($_POST['sub'])){
+    $u=$_POST['text'];
+    $p=$_POST['pass'];
+    $s= "
+    select * from reg as r
+    INNER join profile_reg as p on p.idProfile = r.fk_idProfile 
+    where username='$u' and password= '$p'
+    ";   
+    $qu= mysqli_query($con, $s);
+   
+    if(mysqli_num_rows($qu)>0){
+        $f= mysqli_fetch_assoc($qu);
+        $_SESSION['id']=$f['id'];
+        $_SESSION['profile']=$f['nameProfile'];
+        header ('location:dadospage.php');
+    }
+   else{
+       echo 'Usuário ou senha inválidos';
+   }
+  
+}
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="soft-ui-dashboard-main/assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="soft-ui-dashboard-main/assets/img/favicon.png">
   <title>
-    Soft UI Dashboard by Creative Tim
+    Entrar
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
-  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="soft-ui-dashboard-main/assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="soft-ui-dashboard-main/assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="soft-ui-dashboard-main/assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.6" rel="stylesheet" />
+  <link id="pagestyle" href="soft-ui-dashboard-main/assets/css/soft-ui-dashboard.css?v=1.0.6" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -42,8 +55,8 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
           <div class="container-fluid pe-0">
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="../pages/dashboard.html">
-              Soft UI Dashboard
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="soft-ui-dashboard-main/pages/dashboard.html">
+              VISUCARD
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon mt-2">
@@ -55,38 +68,19 @@
             <div class="collapse navbar-collapse" id="navigation">
               <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
                 <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/dashboard.html">
-                    <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
-                    Dashboard
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link me-2" href="../pages/profile.html">
-                    <i class="fa fa-user opacity-6 text-dark me-1"></i>
-                    Profile
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link me-2" href="../pages/sign-up.html">
+                  <a class="nav-link me-2" href="cadastrar.php">
                     <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
-                    Sign Up
+                    Cadastrar
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2" href="../pages/sign-in.html">
+                  <a class="nav-link me-2" href="entrar.php">
                     <i class="fas fa-key opacity-6 text-dark me-1"></i>
-                    Sign In
+                    Entrar
                   </a>
                 </li>
               </ul>
-              <li class="nav-item d-flex align-items-center">
-                <a class="btn btn-round btn-sm mb-0 btn-outline-primary me-2" target="_blank" href="https://www.creative-tim.com/builder/soft-ui?ref=navbar-dashboard">Online Builder</a>
-              </li>
-              <ul class="navbar-nav d-lg-block d-none">
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/product/soft-ui-dashboard" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">Free download</a>
-                </li>
-              </ul>
+              
             </div>
           </div>
         </nav>
@@ -102,39 +96,39 @@
             <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
               <div class="card card-plain mt-8">
                 <div class="card-header pb-0 text-left bg-transparent">
-                  <h3 class="font-weight-bolder text-info text-gradient">Welcome back</h3>
-                  <p class="mb-0">Enter your email and password to sign in</p>
+                  <h3 class="font-weight-bolder text-info text-gradient">Bem-Vindo de volta!</h3>
+                  <p class="mb-0">Insira seu CPF e senha para entrar</p>
                 </div>
                 <div class="card-body">
                   <form role="form">
-                    <label>Email</label>
+                    <label>CPF</label>
                     <div class="mb-3">
-                      <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                      <input type="email" class="form-control" placeholder="CPF" aria-label="Email" aria-describedby="email-addon">
                     </div>
-                    <label>Password</label>
+                    <label>Senha</label>
                     <div class="mb-3">
-                      <input type="email" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                      <input type="email" class="form-control" placeholder="Senha" aria-label="Password" aria-describedby="password-addon">
                     </div>
                     <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
-                      <label class="form-check-label" for="rememberMe">Remember me</label>
+                      <label class="form-check-label" for="rememberMe">Lembrar de mim</label>
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
+                      <button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0">Entrar</button>
                     </div>
                   </form>
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                   <p class="mb-4 text-sm mx-auto">
-                    Don't have an account?
-                    <a href="javascript:;" class="text-info text-gradient font-weight-bold">Sign up</a>
+                    Não tem uma conta ainda?
+                    <a href="cadastrar.php" class="text-info text-gradient font-weight-bold">Cadastrar</a>
                   </p>
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
-                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('../assets/img/curved-images/curved6.jpg')"></div>
+                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('soft-ui-dashboard-main/assets/img/curved-images/curved6.jpg')"></div>
               </div>
             </div>
           </div>
@@ -197,10 +191,10 @@
   </footer>
   <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
   <!--   Core JS Files   -->
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="soft-ui-dashboard-main/assets/js/core/popper.min.js"></script>
+  <script src="soft-ui-dashboard-main/assets/js/core/bootstrap.min.js"></script>
+  <script src="soft-ui-dashboard-main/assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="soft-ui-dashboard-main/assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -213,7 +207,7 @@
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.6"></script>
+  <script src="soft-ui-dashboard-main/assets/js/soft-ui-dashboard.min.js?v=1.0.6"></script>
 </body>
 
 </html>
