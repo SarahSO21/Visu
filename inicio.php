@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 mb-5">Queremos proporcionar uma experiência única! Fazer a diferença! Facilitar a sua vida e ainda ajudar na sua carreira!</p>
-                        <a class="btn btn-primary btn-xl" href="entrar.php">Faça Parte!</a>
+                        <a class="btn btn-primary btn-xl" href="entrar.php">Crie sua conta!</a>
                     </div>
                 </div>
             </div>
@@ -54,9 +54,9 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 text-center">
-                        <h2 class="text-white mt-0">We've got what you need!</h2>
+                        <h2 class="text-white mt-0">Acesse agora!</h2>
                         <hr class="divider divider-light" />
-                        <p class="text-white-75 mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! Choose one of our open source, free to download, and easy to use themes! No strings attached!</p>
+                        <p class="text-white-75 mb-4">Nós temos o que você precisa!</p>
                         <a class="btn btn-light btn-xl" href="entrar.php">Faça Parte!</a>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
         <!-- Services-->
         <section class="page-section" id="services">
             <div class="container px-4 px-lg-5">
-                <h2 class="text-center mt-0">At Your Service</h2>
+                <h2 class="text-center mt-0">Nossos serviços!</h2>
                 <hr class="divider" />
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-lg-3 col-md-6 text-center">

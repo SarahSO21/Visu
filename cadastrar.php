@@ -149,9 +149,25 @@ if(isset($_POST['sub'])){
                   <div class="mb-3">
                     <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                   </div>
-                  <div class="mb-3">
-                    <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
-                  </div>
+                  <form id="dssLogin" name="dssLogin" data-gv2containerkey="passwordForm" class="slide-in-left-enter-done">
+                    <h3 class="text-dark font-weight-bolder">Crie uma senha</h3>
+                        <fieldset class="sc-fAjcbJ fuLZAW sc-gGBfsJ bFCOiu" display="inline">
+                          <legend class="sc-gisBJw iymaDG">password</legend>
+                          <span style="position: relative; display: block;"><input aria-invalid="false" aria-label="Senha" aria-describedby="password__error" data-testid="" display="inline" id="password" maxlength="" name="password" placeholder="Senha" type="password" data-gv2elementkey="password" class="sc-gPEVay eNNRCm sc-caSCKo dkOCcf text-color--primary body-copy form-input-text" value="">
+                          <button data-testid="show-hide-password" tabindex="0" type="button" style="cursor: pointer; position: absolute; right: 16px; top: 13px; display: inline-block; border: none; background: transparent;"><svg aria-hidden="true" aria-label="Sua senha está oculta. Selecione esta opção para mostrar a senha." color="#cacaca" role="img" transform="" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="sc-jhAzac dELDDi">
+                            <title></title>
+                            <path d="M1.393 4.222l1.415-1.414 18.384 18.384-1.414 1.415-3.496-3.497c-1.33.547-2.773.89-4.282.89-6.627 0-12-6.625-12-8 0-.752 1.607-3.074 4.147-5.024L1.393 4.222zM12 4c6.627 0 12 6.625 12 8 0 .752-1.607 3.074-4.147 5.024l-3.198-3.196a5 5 0 0 0-6.483-6.483L7.718 4.89C9.048 4.343 10.49 4 12 4zm-4.656 6.173a5 5 0 0 0 6.483 6.483l-1.661-1.66L12 15a3 3 0 0 1-3-3l.005-.166-1.66-1.66zM12 9a3 3 0 0 1 3 3l-.005.166-3.162-3.161L12 9z" class="sc-hzDkRC kzwgVO">
+
+                            </path>
+                            </svg>
+                          </button>
+                              <div class="sc-fBuWsC laGfzJ">
+                              <div class="metadata text-color--secondary margin--1">Use no mínimo seis caracteres (com distinção entre maiúsculas e minúsculas) com pelo menos um número ou caractere especial.</div>
+                              </div>
+                          </span>
+                        </fieldset>
+                      </form>
+                    </form>
                   <div class="form-check form-check-info text-left">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
                     <label class="form-check-label" for="flexCheckDefault">
