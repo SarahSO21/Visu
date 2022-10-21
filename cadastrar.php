@@ -84,8 +84,8 @@ if(isset($_POST['sub'])){
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-5 text-center mx-auto">
-              <h1 class="text-white mb-2 mt-5">Welcome!</h1>
-              <p class="text-lead text-white">Use these awesome forms to login or create new account in your project for free.</p>
+              <h1 class="text-white mb-2 mt-5">Bem-Vindo!</h1>
+              <p class="text-lead text-white">Insira os dados pedidos para realizar seu cadastro.</p>
             </div>
           </div>
         </div>
@@ -137,23 +137,24 @@ if(isset($_POST['sub'])){
                 </div>
                 <div class="mt-2 position-relative text-center">
                   <p class="text-sm font-weight-bold mb-2 text-secondary text-border d-inline z-index-2 bg-white px-3">
-                    or
+                    ou
                   </p>
                 </div>
               </div>
               <div class="card-body">
                 <form role="form text-left">
                   <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="email-addon">
+                    <input type="text" class="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="email-addon">
                   </div>
                   <div class="mb-3">
                     <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                   </div>
                   <form id="dssLogin" name="dssLogin" data-gv2containerkey="passwordForm" class="slide-in-left-enter-done">
-                    <h3 class="text-dark font-weight-bolder">Crie uma senha</h3>
+                  <p class="text-sm font-weight-bold mb-2 text-secondary text-border d-inline z-index-2 bg-white px-3">Crie uma senha</p>
                         <fieldset class="sc-fAjcbJ fuLZAW sc-gGBfsJ bFCOiu" display="inline">
-                          <legend class="sc-gisBJw iymaDG">password</legend>
-                          <span style="position: relative; display: block;"><input aria-invalid="false" aria-label="Senha" aria-describedby="password__error" data-testid="" display="inline" id="password" maxlength="" name="password" placeholder="Senha" type="password" data-gv2elementkey="password" class="sc-gPEVay eNNRCm sc-caSCKo dkOCcf text-color--primary body-copy form-input-text" value="">
+                          <span style="position: relative; display: block;"><input aria-invalid="false" aria-label="Senha" 
+                          aria-describedby="password__error" data-testid="" display="inline" id="password" maxlength="" name="password" 
+                          placeholder="Senha" type="password" data-gv2elementkey="password" class="form-control" value="">
                           <button data-testid="show-hide-password" tabindex="0" type="button" style="cursor: pointer; position: absolute; right: 16px; top: 13px; display: inline-block; border: none; background: transparent;"><svg aria-hidden="true" aria-label="Sua senha está oculta. Selecione esta opção para mostrar a senha." color="#cacaca" role="img" transform="" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="sc-jhAzac dELDDi">
                             <title></title>
                             <path d="M1.393 4.222l1.415-1.414 18.384 18.384-1.414 1.415-3.496-3.497c-1.33.547-2.773.89-4.282.89-6.627 0-12-6.625-12-8 0-.752 1.607-3.074 4.147-5.024L1.393 4.222zM12 4c6.627 0 12 6.625 12 8 0 .752-1.607 3.074-4.147 5.024l-3.198-3.196a5 5 0 0 0-6.483-6.483L7.718 4.89C9.048 4.343 10.49 4 12 4zm-4.656 6.173a5 5 0 0 0 6.483 6.483l-1.661-1.66L12 15a3 3 0 0 1-3-3l.005-.166-1.66-1.66zM12 9a3 3 0 0 1 3 3l-.005.166-3.162-3.161L12 9z" class="sc-hzDkRC kzwgVO">
@@ -162,7 +163,7 @@ if(isset($_POST['sub'])){
                             </svg>
                           </button>
                               <div class="sc-fBuWsC laGfzJ">
-                              <div class="metadata text-color--secondary margin--1">Use no mínimo seis caracteres (com distinção entre maiúsculas e minúsculas) com pelo menos um número ou caractere especial.</div>
+                              <div class="text-sm mt-2 mb-1">Use no mínimo seis caracteres (com distinção entre maiúsculas e minúsculas) com pelo menos um número ou caractere especial.</div>
                               </div>
                           </span>
                         </fieldset>
