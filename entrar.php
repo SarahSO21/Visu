@@ -17,7 +17,7 @@ if(isset($_POST['sub'])){
         $f= mysqli_fetch_assoc($qu);
         $_SESSION['id']=$f['id'];
         $_SESSION['profile']=$f['nameProfile'];
-        header ('location:dadospage.php');
+        header ('location:paginainicial.php');
     }
    else{
        echo 'Usuário ou senha inválidos';
@@ -114,7 +114,8 @@ if(isset($_POST['sub'])){
                       <label class="form-check-label" for="rememberMe">Lembrar de mim</label>
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0">Entrar</button>
+                      <button type="submit" href="paginainicial.php" class="btn bg-gradient-info w-100 mt-4 mb-0" name="sub" value="">Entrar</button>
+                
                     </div>
                   </form>
                 </div>

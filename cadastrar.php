@@ -10,7 +10,7 @@ if(isset($_POST['sub'])){
 
     $i="insert into reg(name,username,telefone,email,password)value('$t','$u','$o', '$e', '$p')";
     mysqli_query($con, $i);
-    header('location:loginpage.php');
+    header('location:entrar.php');
   }
   $s="select*from reg where id='$_SESSION[id]'";
     $qu= mysqli_query($con, $s);
@@ -95,7 +95,7 @@ if(isset($_POST['sub'])){
           <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
             <div class="card z-index-0">
               <div class="card-header text-center pt-4">
-                <h5>Register with</h5>
+                <h5>Registrar com:</h5>
               </div>
               <div class="row px-xl-5 px-sm-4 px-3">
                 <div class="col-3 ms-auto px-1">
@@ -142,18 +142,18 @@ if(isset($_POST['sub'])){
                 </div>
               </div>
               <div class="card-body">
-                <form role="form text-left">
+                <form  method="POST" enctype="multipart/form-data" role="form text-left">
                   <div class="mb-3">
                     <input type="text" class="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="email-addon">
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                    <input type="user" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                   </div>
                   <form id="dssLogin" name="dssLogin" data-gv2containerkey="passwordForm" class="slide-in-left-enter-done">
                   <p class="text-sm font-weight-bold mb-2 text-secondary text-border d-inline z-index-2 bg-white px-3">Crie uma senha</p>
                         <fieldset class="sc-fAjcbJ fuLZAW sc-gGBfsJ bFCOiu" display="inline">
                           <span style="position: relative; display: block;"><input aria-invalid="false" aria-label="Senha" 
-                          aria-describedby="password__error" data-testid="" display="inline" id="password" maxlength="" name="password" 
+                          aria-describedby="password__error" data-testid="" display="inline" id="password" maxlength="" name="pass" 
                           placeholder="Senha" type="password" data-gv2elementkey="password" class="form-control" value="">
                           <button data-testid="show-hide-password" tabindex="0" type="button" style="cursor: pointer; position: absolute; right: 16px; top: 13px; display: inline-block; border: none; background: transparent;"><svg aria-hidden="true" aria-label="Sua senha está oculta. Selecione esta opção para mostrar a senha." color="#cacaca" role="img" transform="" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="sc-jhAzac dELDDi">
                             <title></title>
@@ -162,9 +162,6 @@ if(isset($_POST['sub'])){
                             </path>
                             </svg>
                           </button>
-                              <div class="sc-fBuWsC laGfzJ">
-                              <div class="text-sm mt-2 mb-1">Use no mínimo seis caracteres (com distinção entre maiúsculas e minúsculas) com pelo menos um número ou caractere especial.</div>
-                              </div>
                           </span>
                         </fieldset>
                       </form>
@@ -172,13 +169,13 @@ if(isset($_POST['sub'])){
                   <div class="form-check form-check-info text-left">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
                     <label class="form-check-label" for="flexCheckDefault">
-                      I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
+                      Eu aceito os <a href="javascript:;" class="text-dark font-weight-bolder">Termos e Condições</a>
                     </label>
                   </div>
                   <div class="text-center">
-                    <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>
+                    <input type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2" name="sub" value="Cadastrar">
                   </div>
-                  <p class="text-sm mt-3 mb-0">Already have an account? <a href="javascript:;" class="text-dark font-weight-bolder">Sign in</a></p>
+                  <p class="text-sm mt-3 mb-0">Você já tem uma conta? <a href="entrar.php" class="text-dark font-weight-bolder">Entrar</a></p>
                 </form>
               </div>
             </div>

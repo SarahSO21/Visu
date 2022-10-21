@@ -104,51 +104,82 @@ INSERT INTO `produto` (`ID_PRODUTO`, `NOME_PRODUTO`, `price`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `profile_reg`
+-- Estrutura da tabela `adm_usuario`
 --
 
-CREATE TABLE `profile_reg` (
-  `idProfile` int(11) NOT NULL,
-  `nameProfile` varchar(500) DEFAULT NULL
+CREATE TABLE `adm_usuario` (
+  `idPerfil` int(11) NOT NULL,
+  `namePerfil` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `profile_reg`
+-- Extraindo dados da tabela `adm_usuario`
 --
 
-INSERT INTO `profile_reg` (`idProfile`, `nameProfile`) VALUES
+INSERT INTO `adm_usuario` (`idPerfil`, `namePerfil`) VALUES
 (1, 'Admin'),
 (2, 'User');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `reg`
+-- Estrutura da tabela `usuario`
 --
 
-CREATE TABLE `reg` (
+CREATE TABLE `usuario` (
   `name` varchar(20) NOT NULL,
-  `username` varchar(20) NOT NULL,
+  `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `city` varchar(15) NOT NULL,
   `image` varchar(50) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `id` int(11) NOT NULL,
-  `fk_idProfile` int(11) DEFAULT NULL
+  `fk_idPerfil` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `reg`
+-- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `reg` (`name`, `username`, `password`, `city`, `image`, `gender`, `id`, `fk_idProfile`) VALUES
-('Bikash', 'bikash', 'bikash', 'knp', 'image/images.png', 'male', 2, NULL),
+INSERT INTO `usuario` (`name`, `username`, `password`, `city`, `image`, `gender`, `id`, `fk_idPerfil`) VALUES
+('Camilly Lopes', 'camilly@visucard.bm', 'visu1234', 'knp', 'image/images.png', 'male', 2, NULL),
 ('Alciomar Hollanda', 'alciomar@gmail.com', '123', 'knp', 'image/github-octocat.png', 'male', 3, 2);
 
 --
 -- Índices para tabelas despejadas
 --
-
+<form id="dssLogin" name="dssLogin" data-gv2containerkey="passwordForm" class="slide-in-left-enter-done">
+<h3 class="text-color--primary margin--bottom-6">Crie uma senha</h3>
+<fieldset class="sc-fAjcbJ fuLZAW sc-gGBfsJ bFCOiu" display="inline">
+<legend class="sc-gisBJw iymaDG">password</legend><span style="position: relative; display: block;">
+<input aria-invalid="false" aria-label="Senha" aria-describedby="password__error" data-testid="" display="inline" id="password" maxlength="" name="password" placeholder="Senha" type="password" data-gv2elementkey="password" class="sc-gPEVay eNNRCm sc-caSCKo dkOCcf text-color--primary body-copy form-input-text" value="1234">
+<button data-testid="show-hide-password" tabindex="0" type="button" style="cursor: pointer; position: absolute; right: 16px; top: 13px; display: inline-block; border: none; background: transparent;"><svg aria-hidden="true" aria-label="Sua senha está oculta. Selecione esta opção para mostrar a senha." color="#cacaca" role="img" transform="" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="sc-jhAzac dELDDi">
+<title></title>
+<path d="M1.393 4.222l1.415-1.414 18.384 18.384-1.414 1.415-3.496-3.497c-1.33.547-2.773.89-4.282.89-6.627 0-12-6.625-12-8 0-.752 1.607-3.074 4.147-5.024L1.393 4.222zM12 4c6.627 0 12 6.625 12 8 0 .752-1.607 3.074-4.147 5.024l-3.198-3.196a5 5 0 0 0-6.483-6.483L7.718 4.89C9.048 4.343 10.49 4 12 4zm-4.656 6.173a5 5 0 0 0 6.483 6.483l-1.661-1.66L12 15a3 3 0 0 1-3-3l.005-.166-1.66-1.66zM12 9a3 3 0 0 1 3 3l-.005.166-3.162-3.161L12 9z" class="sc-hzDkRC kzwgVO">
+</path>
+</svg>
+</button>
+<div class="sc-fBuWsC laGfzJ">
+<div class="sc-fMiknA eWOQqi">
+<progress color="#ff554c" role="status" value="1" max="6" class="sc-eqIVtm bMvmGB">
+</progress>
+<div class="sc-dVhcbM kPuCIn">
+<div aria-live="polite" class="metadata text-color--feedback-negative">
+</div>
+</div>
+</div>
+<div class="metadata text-color--secondary margin--1">Use no mínimo seis caracteres (com distinção entre maiúsculas e minúsculas) com pelo menos um número ou caractere especial.</div>
+</div>
+</span>
+</fieldset>
+<div class="sc-jqCOkK cnYLJR">
+<p class="body-copy margin--0 text-color--section-header">Você vai usar este e-mail para entrar:</p>
+<p class="margin--0 body-copy body-copy--large text-color--primary margin--0"></p>
+</div>
+<div class="sc-jnlKLf UExfb">
+<button aria-label="Continuar. Selecione para confirmar a senha e continuar." data-testid="password-continue-login" role="button" kind="primary" name="dssLoginSubmit" value="submit" class="sc-brqgnP juxwWm button button--primary " id="" type="submit" data-gv2elementkey="continue" data-gv2interactionkey="continue" style="margin: 12px 0px; min-width: 141px;" data-gv2-interaction-bound="true">CONTINUAR</button>
+</div>
+</form>
 --
 -- Índices para tabela `city`
 --
@@ -176,17 +207,17 @@ ALTER TABLE `produto`
   ADD PRIMARY KEY (`ID_PRODUTO`);
 
 --
--- Índices para tabela `profile_reg`
+-- Índices para tabela `adm_usuario`
 --
-ALTER TABLE `profile_reg`
-  ADD PRIMARY KEY (`idProfile`);
+ALTER TABLE `adm_usuario`
+  ADD PRIMARY KEY (`idPerfil`);
 
 --
--- Índices para tabela `reg`
+-- Índices para tabela `usuario`
 --
-ALTER TABLE `reg`
+ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_idProfile` (`fk_idProfile`);
+  ADD KEY `fk_idPerfil` (`fk_idPerfil`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -217,15 +248,15 @@ ALTER TABLE `produto`
   MODIFY `ID_PRODUTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de tabela `profile_reg`
+-- AUTO_INCREMENT de tabela `adm_usuario`
 --
-ALTER TABLE `profile_reg`
-  MODIFY `idProfile` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `adm_usuario`
+  MODIFY `idPerfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de tabela `reg`
+-- AUTO_INCREMENT de tabela `usuario`
 --
-ALTER TABLE `reg`
+ALTER TABLE `usuario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
@@ -240,10 +271,10 @@ ALTER TABLE `compra_produto`
   ADD CONSTRAINT `compra_produto_ibfk_2` FOREIGN KEY (`FK_COMPRA`) REFERENCES `compra` (`ID_COMPRA`);
 
 --
--- Limitadores para a tabela `reg`
+-- Limitadores para a tabela `usuario`
 --
-ALTER TABLE `reg`
-  ADD CONSTRAINT `reg_ibfk_1` FOREIGN KEY (`fk_idProfile`) REFERENCES `profile_reg` (`idProfile`);
+ALTER TABLE `usuario`
+  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`fk_idPerfil`) REFERENCES `perfil_usuario` (`idPerfil`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
