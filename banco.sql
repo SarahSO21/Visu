@@ -35,72 +35,91 @@ CREATE TABLE `city` (
 --
 -- Extraindo dados da tabela `city`
 --
-
 INSERT INTO `city` (`idCity`, `nameCity`) VALUES
 (1, 'Campinas'),
 (2, 'Hortolândia'),
-(4, 'Sumaré');
-
--- --------------------------------------------------------
+(3, 'Indaiatuba'),
+(4, 'Sumaré'),
+(5, 'Capivari'),
+(6, 'Jundiaí'),
+(7, 'Americana'),
+(8, 'Nova Odessa'),
+(9, 'Botucatu'),
+(10, 'Atibaia'),
+(11, 'Piracicaba'),
+(12, 'Jaguariuna'),
+(13, 'Amparo'),
+(14, 'Limeira');
 
 --
--- Estrutura da tabela `compra`
+-- Extraindo dados da tabela `extrato`
 --
 
-CREATE TABLE `compra` (
-  `ID_COMPRA` int(11) NOT NULL,
-  `DATA_COMPRA` datetime DEFAULT current_timestamp(),
+CREATE TABLE `extrato` (
+  `ID_extrato` int(11) NOT NULL,
+  `DATA_extrato` datetime DEFAULT current_timestamp(),
   `TOTAL_PRECO` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `compra`
+-- Extraindo dados da tabela `extrato`
 --
 
-INSERT INTO `compra` (`ID_COMPRA`, `DATA_COMPRA`, `TOTAL_PRECO`) VALUES
-(1, '2021-04-27 22:08:04', 0);
+INSERT INTO `extrato` (`ID_extrato`, `DATA_extrato`, `TOTAL_PRECO`) VALUES
+(1, '2021-04-27 22:08:04', 160),
+(2, '2020-01-14 12:28:59', 657),
+(3, '2021-04-27 19:19:12', 5000),
+(4, '2021-04-27 20:13:45', 129),
+(5, '2021-04-27 00:48:37', 738);
 
 -- --------------------------------------------------------
-
---
--- Estrutura da tabela `compra_produto`
+-- Estrutura da tabela `transacoes`
 --
 
-CREATE TABLE `compra_produto` (
+CREATE TABLE `transacoes` (
   `ID` int(11) NOT NULL,
   `FK_PRODUTO` int(11) NOT NULL,
-  `FK_COMPRA` int(11) NOT NULL,
-  `QTD_PRODUTO` int(11) NOT NULL
+  `FK_extrato` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `compra_produto`
+-- Extraindo dados da tabela `transaçoes`
 --
 
-INSERT INTO `compra_produto` (`ID`, `FK_PRODUTO`, `FK_COMPRA`, `QTD_PRODUTO`) VALUES
-(9, 2, 1, 5),
-(10, 1, 1, 2);
+INSERT INTO `transaçoes` (`ID`, `FK_PRODUTO`, `FK_extrato`) VALUES
+(1, 3, 4),
+(2, 2, 2),
+(3, 4, 1),
+(4, 5, 3),
+(9, 3, 5),
+(10, 1, 6);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produto`
+-- Estrutura da tabela `servicos`
 --
 
-CREATE TABLE `produto` (
-  `ID_PRODUTO` int(11) NOT NULL,
-  `NOME_PRODUTO` varchar(30) NOT NULL,
-  `price` float DEFAULT NULL
+CREATE TABLE `servicos` (
+  `ID_servicos` int(11) NOT NULL,
+  `NOME_servicos` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `produto`
+-- Extraindo dados da tabela `servicos`
 --
 
-INSERT INTO `produto` (`ID_PRODUTO`, `NOME_PRODUTO`, `price`) VALUES
-(1, 'TECLADO x13', 50),
-(2, 'MONITOR 39', 800);
-
+INSERT INTO `servicos` (`ID_servicos`, `NOME_servicos`) VALUES
+(1, 'Cartões'),
+(2, 'PIX'),
+(3, 'Cheque'),
+(4, 'Empréstimo'),
+(5, 'Recarga'),
+(6, 'Investimentos'),
+(7, 'Transferências'),
+(8, 'Seguro'),
+(9, 'Mensalidade'),
+(10, 'Whatsapp');
 -- --------------------------------------------------------
 
 --
@@ -147,39 +166,6 @@ INSERT INTO `usuario` (`name`, `username`, `password`, `city`, `image`, `gender`
 
 --
 -- Índices para tabelas despejadas
---
-<form id="dssLogin" name="dssLogin" data-gv2containerkey="passwordForm" class="slide-in-left-enter-done">
-<h3 class="text-color--primary margin--bottom-6">Crie uma senha</h3>
-<fieldset class="sc-fAjcbJ fuLZAW sc-gGBfsJ bFCOiu" display="inline">
-<legend class="sc-gisBJw iymaDG">password</legend><span style="position: relative; display: block;">
-<input aria-invalid="false" aria-label="Senha" aria-describedby="password__error" data-testid="" display="inline" id="password" maxlength="" name="password" placeholder="Senha" type="password" data-gv2elementkey="password" class="sc-gPEVay eNNRCm sc-caSCKo dkOCcf text-color--primary body-copy form-input-text" value="1234">
-<button data-testid="show-hide-password" tabindex="0" type="button" style="cursor: pointer; position: absolute; right: 16px; top: 13px; display: inline-block; border: none; background: transparent;"><svg aria-hidden="true" aria-label="Sua senha está oculta. Selecione esta opção para mostrar a senha." color="#cacaca" role="img" transform="" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="sc-jhAzac dELDDi">
-<title></title>
-<path d="M1.393 4.222l1.415-1.414 18.384 18.384-1.414 1.415-3.496-3.497c-1.33.547-2.773.89-4.282.89-6.627 0-12-6.625-12-8 0-.752 1.607-3.074 4.147-5.024L1.393 4.222zM12 4c6.627 0 12 6.625 12 8 0 .752-1.607 3.074-4.147 5.024l-3.198-3.196a5 5 0 0 0-6.483-6.483L7.718 4.89C9.048 4.343 10.49 4 12 4zm-4.656 6.173a5 5 0 0 0 6.483 6.483l-1.661-1.66L12 15a3 3 0 0 1-3-3l.005-.166-1.66-1.66zM12 9a3 3 0 0 1 3 3l-.005.166-3.162-3.161L12 9z" class="sc-hzDkRC kzwgVO">
-</path>
-</svg>
-</button>
-<div class="sc-fBuWsC laGfzJ">
-<div class="sc-fMiknA eWOQqi">
-<progress color="#ff554c" role="status" value="1" max="6" class="sc-eqIVtm bMvmGB">
-</progress>
-<div class="sc-dVhcbM kPuCIn">
-<div aria-live="polite" class="metadata text-color--feedback-negative">
-</div>
-</div>
-</div>
-<div class="metadata text-color--secondary margin--1">Use no mínimo seis caracteres (com distinção entre maiúsculas e minúsculas) com pelo menos um número ou caractere especial.</div>
-</div>
-</span>
-</fieldset>
-<div class="sc-jqCOkK cnYLJR">
-<p class="body-copy margin--0 text-color--section-header">Você vai usar este e-mail para entrar:</p>
-<p class="margin--0 body-copy body-copy--large text-color--primary margin--0"></p>
-</div>
-<div class="sc-jnlKLf UExfb">
-<button aria-label="Continuar. Selecione para confirmar a senha e continuar." data-testid="password-continue-login" role="button" kind="primary" name="dssLoginSubmit" value="submit" class="sc-brqgnP juxwWm button button--primary " id="" type="submit" data-gv2elementkey="continue" data-gv2interactionkey="continue" style="margin: 12px 0px; min-width: 141px;" data-gv2-interaction-bound="true">CONTINUAR</button>
-</div>
-</form>
 --
 -- Índices para tabela `city`
 --
