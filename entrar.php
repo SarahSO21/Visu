@@ -7,10 +7,7 @@ if(isset($_POST['sub'])){
     $u=$_POST['text'];
     $p=$_POST['pass'];
     $s= "
-    select * from usuario as r
-    INNER join adm_usuario as p on p.idPerfil = r.fk_idPerfil
-    where username='$u' and password= '$p'
-    ";   
+    select * from usuario ";   
     $qu= mysqli_query($con, $s);
    
     if(mysqli_num_rows($qu)>0){
