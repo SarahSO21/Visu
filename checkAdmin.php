@@ -1,8 +1,8 @@
 <?php
 
 
-if($_SESSION['profile']!='Admin'){
-    header('location:home.php');
+if($_SESSION['perfil']!='Admin'){
+    header('location:paginainicial .php');
 }
 
 ?>

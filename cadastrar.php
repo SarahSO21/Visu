@@ -6,13 +6,12 @@ if(isset($_POST['sub'])){
     $o=$_POST['tell'];
     $u=$_POST['user'];
     $p=$_POST['pass'];
-    $e=$_POST['email'];
 
-    $i="insert into reg(name,username,telefone,email,password)value('$t','$u','$o', '$e', '$p')";
+    $i="insert into usuario(name,username,telefone,password)value('$t','$u','$o', '$p')";
     mysqli_query($con, $i);
     header('location:entrar.php');
   }
-  $s="select*from reg where id='$_SESSION[id]'";
+  $s="select*from usuario where id='$_SESSION[id]'";
     $qu= mysqli_query($con, $s);
     $f=mysqli_fetch_assoc($qu);
 ?>

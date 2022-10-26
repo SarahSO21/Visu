@@ -16,7 +16,7 @@ if(isset($_POST['sub'])){
     if(mysqli_num_rows($qu)>0){
         $f= mysqli_fetch_assoc($qu);
         $_SESSION['id']=$f['id'];
-        $_SESSION['profile']=$f['nameProfile'];
+        $_SESSION['perfil']=$f['namePerfil'];
         header ('location:paginainicial.php');
     }
    else{
@@ -103,11 +103,11 @@ if(isset($_POST['sub'])){
                   <form method="POST" enctype="multipart/form-data" role="form">
                     <label>Email</label>
                     <div class="mb-3">
-                      <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                      <input type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" name="text" value>
                     </div>
                     <label>Senha</label>
                     <div class="mb-3">
-                      <input type="email" class="form-control" placeholder="Senha" aria-label="Password" aria-describedby="password-addon">
+                      <input type="password" id="exampleInputPassword" class="form-control" placeholder="Senha" aria-label="Password" aria-describedby="password-addon" name="pass" value>
                     </div>
                     <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
