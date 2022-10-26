@@ -34,7 +34,7 @@ if(isset($_POST['sub'])){
     Entrar
   </title>
   <!--     Fonts and icons     -->
-  <link href="https:/soft-ui-dashboard-main /fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="soft-ui-dashboard-main/assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="soft-ui-dashboard-main/assets/css/nucleo-svg.css" rel="stylesheet" />
