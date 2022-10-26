@@ -27,15 +27,15 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `city`
 --
 
-CREATE TABLE `city` (
-  `idCity` int(11) NOT NULL,
-  `nameCity` varchar(300) NOT NULL
+CREATE TABLE `Cidade` (
+  `idCidade` int(11) NOT NULL,
+  `nameCidade` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `city`
+-- Extraindo dados da tabela `Cidade`
 --
-INSERT INTO `city` (`idCity`, `nameCity`) VALUES
+INSERT INTO `Cidade` (`idCidade`, `nameCidade`) VALUES
 (1, 'Campinas'),
 (2, 'Hortolândia'),
 (3, 'Indaiatuba'),
@@ -75,7 +75,6 @@ INSERT INTO `extrato` (`ID_extrato`, `DATA_extrato`, `TOTAL_PRECO`) VALUES
 -- --------------------------------------------------------
 -- Estrutura da tabela `transacoes`
 --
-
 CREATE TABLE `transacoes` (
   `ID` int(11) NOT NULL,
   `FK_PRODUTO` int(11) NOT NULL,
@@ -83,10 +82,10 @@ CREATE TABLE `transacoes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `transaçoes`
+-- Extraindo dados da tabela `transacoes`
 --
 
-INSERT INTO `transaçoes` (`ID`, `FK_PRODUTO`, `FK_extrato`) VALUES
+INSERT INTO `transacoes` (`ID`, `FK_PRODUTO`, `FK_extrato`) VALUES
 (1, 3, 4),
 (2, 2, 2),
 (3, 4, 1),
@@ -149,7 +148,7 @@ CREATE TABLE `usuario` (
   `name` varchar(20) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `city` varchar(15) NOT NULL,
+  `Cidade` varchar(15) NOT NULL,
   `image` varchar(50) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `id` int(11) NOT NULL,
@@ -160,37 +159,37 @@ CREATE TABLE `usuario` (
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`name`, `username`, `password`, `city`, `image`, `gender`, `id`, `fk_idPerfil`) VALUES
+INSERT INTO `usuario` (`name`, `username`, `password`, `Cidade`, `image`, `gender`, `id`, `fk_idPerfil`) VALUES
 ('Camilly Lopes', 'camilly@visucard.bm', 'visu1234', 'knp', 'image/images.png', 'male', 2, NULL),
 ('Alciomar Hollanda', 'alciomar@gmail.com', '123', 'knp', 'image/github-octocat.png', 'male', 3, 2);
 
 --
 -- Índices para tabelas despejadas
 --
--- Índices para tabela `city`
+-- Índices para tabela `Cidade`
 --
-ALTER TABLE `city`
-  ADD PRIMARY KEY (`idCity`);
+ALTER TABLE `Cidade`
+  ADD PRIMARY KEY (`idCidade`);
 
 --
 -- Índices para tabela `compra`
 --
-ALTER TABLE `compra`
-  ADD PRIMARY KEY (`ID_COMPRA`);
+ALTER TABLE `extrato`
+  ADD PRIMARY KEY (`ID_extrato`);
 
 --
 -- Índices para tabela `compra_produto`
 --
-ALTER TABLE `compra_produto`
-  ADD PRIMARY KEY (`ID`,`FK_PRODUTO`,`FK_COMPRA`),
+ALTER TABLE `transacoes`
+  ADD PRIMARY KEY (`ID`,`FK_PRODUTO`,`FK_extrato`),
   ADD KEY `FK_PRODUTO` (`FK_PRODUTO`),
-  ADD KEY `FK_COMPRA` (`FK_COMPRA`);
+  ADD KEY `FK_extrato` (`FK_extrato`);
 
 --
 -- Índices para tabela `produto`
 --
-ALTER TABLE `produto`
-  ADD PRIMARY KEY (`ID_PRODUTO`);
+ALTER TABLE `servicos`
+  ADD PRIMARY KEY (`ID_servicos`);
 
 --
 -- Índices para tabela `adm_usuario`
@@ -210,28 +209,28 @@ ALTER TABLE `usuario`
 --
 
 --
--- AUTO_INCREMENT de tabela `city`
+-- AUTO_INCREMENT de tabela `Cidade`
 --
-ALTER TABLE `city`
-  MODIFY `idCity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `Cidade`
+  MODIFY `idCidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `compra`
 --
-ALTER TABLE `compra`
-  MODIFY `ID_COMPRA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `extrato`
+  MODIFY `ID_extrato` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `compra_produto`
 --
-ALTER TABLE `compra_produto`
+ALTER TABLE `transacoes`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
 --
-ALTER TABLE `produto`
-  MODIFY `ID_PRODUTO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `servicos`
+  MODIFY `ID_servicos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `adm_usuario`
@@ -252,9 +251,9 @@ ALTER TABLE `usuario`
 --
 -- Limitadores para a tabela `compra_produto`
 --
-ALTER TABLE `compra_produto`
-  ADD CONSTRAINT `compra_produto_ibfk_1` FOREIGN KEY (`FK_PRODUTO`) REFERENCES `produto` (`ID_PRODUTO`),
-  ADD CONSTRAINT `compra_produto_ibfk_2` FOREIGN KEY (`FK_COMPRA`) REFERENCES `compra` (`ID_COMPRA`);
+ALTER TABLE `transacoes`
+  ADD CONSTRAINT `transacoes_ibfk_1` FOREIGN KEY (`FK_servicos`) REFERENCES `servicos` (`ID_servicos`),
+  ADD CONSTRAINT `transacoes_ibfk_2` FOREIGN KEY (`FK_extrato`) REFERENCES `extrato` (`ID_extrato`);
 
 --
 -- Limitadores para a tabela `usuario`
