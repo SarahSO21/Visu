@@ -127,7 +127,8 @@ INSERT INTO `servicos` (`ID_servicos`, `NOME_servicos`) VALUES
 
 CREATE TABLE `adm_usuario` (
   `idPerfil` int(11) NOT NULL,
-  `namePerfil` varchar(500) DEFAULT NULL
+  `namePerfil` varchar(500) DEFAULT NULL,
+  `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
