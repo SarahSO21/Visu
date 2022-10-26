@@ -7,8 +7,8 @@ if(isset($_POST['sub'])){
     $u=$_POST['text'];
     $p=$_POST['pass'];
     $s= "
-    select * from reg as r
-    INNER join profile_reg as p on p.idProfile = r.fk_idProfile 
+    select * from usuario as r
+    INNER join adm_usuario as p on p.idPerfil = r.fk_idPerfil
     where username='$u' and password= '$p'
     ";   
     $qu= mysqli_query($con, $s);
