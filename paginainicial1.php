@@ -207,6 +207,7 @@
           </div>
         </div>
       </div>
+      <a class="btn bg-gradient-primary mt-3 w-100" href="https://www.creative-tim.com/product/soft-ui-dashboard-pro?ref=sidebarfree">Upgrade to pro</a>
     </div>
   </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -700,17 +701,17 @@
             </div>
           </div>
           <?php
-    if($_SESSION['perfil']=='Admin'){
-        echo "
-            <a href='.php'>View All Users</a>
-            <a href='reg_city.php'>Reg City</a>
-        ";
-    }else{
-        echo "
-            <a href=' '>Você não é ADM</a>
-        ";
-    }
-?>
+              if($_SESSION['perfil']=='Admin'){
+                  echo "
+                      <a href='.php'>View All Users</a>
+                      <a href='reg_city.php'>Reg City</a>
+                  ";
+              }else{
+                  echo "
+                      <a href=' '>Você não é ADM</a>
+                  ";
+              }
+          ?>
         </div>
       </footer>
     </div>
