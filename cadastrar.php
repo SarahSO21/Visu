@@ -149,30 +149,28 @@ if(isset($_POST['sub'])){
                 <form  method="POST" enctype="multipart/form-data" role="form text-left">
                     <label>Nome Completo:</label>
                     <div class="mb-3">
-                      <input type="text" class="form-control" placeholder="Nome Completo" aria-describedby="email-addon" name="text" value>
+                      <input type="text" class="form-control" placeholder="Nome Completo" name="text" value>
                     </div>
                     <label>Usuário</label>
                     <div class="mb-3">
-                      <input type="user" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" name="user" value>
+                      <input type="user" class="form-control" placeholder="Email" name="user" value>
                     </div>
                     <label>Data de Nascimento</label>
                     <div class="mb-3">
-                      <input type="data" class="form-control" placeholder="Data de Nascimento" aria-label="Email" aria-describedby="email-addon" name="data" value>
+                      <input type="data" class="form-control" placeholder="Data de Nascimento" name="data" value>
                     </div>
                     <label>Telefone celular:</label>
                     <div class="mb-3">
-                      <input type="tell" class="form-control" placeholder="(00)00000-0000" aria-label="Email" aria-describedby="email-addon" name="text" value>
+                      <input type="telefone" class="form-control" placeholder="(00)00000-0000" name="tell" value>
                     </div>
-                    <label>Crie sua senha:</label>
+                    <div class="form-group">
+                    <label >Senha:</label>
                     <div class="mb-3">
-                      <input type="pass" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" name="text" value>
-                    </div>            
-                    
-                        </div>
-                      </form>
+                      <input type="password" id="exampleInputPassword" class="form-control input-shadow" placeholder="Senha" name="pass">
+                      <div class="form-control-position">
+                        <i class="icon-lock"></i>
+                      </div>
                     </div>
-                  </main>
-                  </div>
                 </form>
                   <div class="form-check form-check-info text-left">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
