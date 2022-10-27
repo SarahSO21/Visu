@@ -14,7 +14,7 @@ if(isset($_POST['sub'])){
         $f= mysqli_fetch_assoc($qu);
         $_SESSION['id']=$f['id'];
         $_SESSION['perfil']=$f['namePerfil'];
-        header ('location:paginainicial.php');
+        header ('location:paginainicial1.php');
     }
    else{
        echo 'Usuário ou senha inválidos';
