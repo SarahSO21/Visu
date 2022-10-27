@@ -36,8 +36,8 @@
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html " target="_blank">
-        <img src="soft-ui-dashboard-main/assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="navbar-brand font-weight-bolder ms-lg-0 ms-3 ">VISUCARD</span>
+        <img src="soft-ui-dashboard-main/assets/img/logovisu.png" class="navbar-brand-img h-100" alt="main_logo">
+        <span class="nav-link-text ms-1">VISUCARD</span>
       </a>
     </div>
     <hr class="horizontal dark mt-0">

@@ -6,8 +6,9 @@ if(isset($_POST['sub'])){
     $o=$_POST['tell'];
     $u=$_POST['user'];
     $p=$_POST['pass'];
+    $d=$_POST['data'];
 
-    $i="insert into usuario(name,username,telefone,password)value('$t','$u','$o', '$p')";
+    $i="insert into usuario(name,username,telefone,nascimento, password)value('$t','$u','$o','$d','$p')";
     mysqli_query($con, $i);
     header('location:entrar.php');
   }
@@ -46,9 +47,13 @@ if(isset($_POST['sub'])){
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
           <div class="container-fluid pe-0">
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="soft-ui-dashboard-main/pages/dashboard.html">
-              VISUCARD
+          <div class="sidenav-header">
+              <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+            <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html " target="_blank">
+            <img src="soft-ui-dashboard-main/assets/img/logovisu.png" class="navbar-brand-img h-100" alt="main_logo">
+            <span class="nav-link-text ms-1">VISUCARD</span>
             </a>
+          </div>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon mt-2">
                 <span class="navbar-toggler-bar bar1"></span>
@@ -142,29 +147,33 @@ if(isset($_POST['sub'])){
               </div>
               <div class="card-body">
                 <form  method="POST" enctype="multipart/form-data" role="form text-left">
-                  <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="email-addon">
-                  </div>
-                  <div class="mb-3">
-                    <input type="user" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
-                  </div>
-                  <form id="dssLogin" name="dssLogin" data-gv2containerkey="passwordForm" class="slide-in-left-enter-done">
-                  <p class="text-sm font-weight-bold mb-2 text-secondary text-border d-inline z-index-2 bg-white px-3">Crie uma senha</p>
-                        <fieldset class="sc-fAjcbJ fuLZAW sc-gGBfsJ bFCOiu" display="inline">
-                          <span style="position: relative; display: block;"><input aria-invalid="false" aria-label="Senha" 
-                          aria-describedby="password__error" data-testid="" display="inline" id="password" maxlength="" name="pass" 
-                          placeholder="Senha" type="password" data-gv2elementkey="password" class="form-control" value="">
-                          <button data-testid="show-hide-password" tabindex="0" type="button" style="cursor: pointer; position: absolute; right: 16px; top: 13px; display: inline-block; border: none; background: transparent;"><svg aria-hidden="true" aria-label="Sua senha está oculta. Selecione esta opção para mostrar a senha." color="#cacaca" role="img" transform="" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="sc-jhAzac dELDDi">
-                            <title></title>
-                            <path d="M1.393 4.222l1.415-1.414 18.384 18.384-1.414 1.415-3.496-3.497c-1.33.547-2.773.89-4.282.89-6.627 0-12-6.625-12-8 0-.752 1.607-3.074 4.147-5.024L1.393 4.222zM12 4c6.627 0 12 6.625 12 8 0 .752-1.607 3.074-4.147 5.024l-3.198-3.196a5 5 0 0 0-6.483-6.483L7.718 4.89C9.048 4.343 10.49 4 12 4zm-4.656 6.173a5 5 0 0 0 6.483 6.483l-1.661-1.66L12 15a3 3 0 0 1-3-3l.005-.166-1.66-1.66zM12 9a3 3 0 0 1 3 3l-.005.166-3.162-3.161L12 9z" class="sc-hzDkRC kzwgVO">
-
-                            </path>
-                            </svg>
-                          </button>
-                          </span>
-                        </fieldset>
+                    <label>Nome Completo:</label>
+                    <div class="mb-3">
+                      <input type="text" class="form-control" placeholder="Nome Completo" aria-describedby="email-addon" name="text" value>
+                    </div>
+                    <label>Usuário</label>
+                    <div class="mb-3">
+                      <input type="user" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" name="user" value>
+                    </div>
+                    <label>Data de Nascimento</label>
+                    <div class="mb-3">
+                      <input type="data" class="form-control" placeholder="Data de Nascimento" aria-label="Email" aria-describedby="email-addon" name="data" value>
+                    </div>
+                    <label>Telefone celular:</label>
+                    <div class="mb-3">
+                      <input type="tell" class="form-control" placeholder="(00)00000-0000" aria-label="Email" aria-describedby="email-addon" name="text" value>
+                    </div>
+                    <label>Crie sua senha:</label>
+                    <div class="mb-3">
+                      <input type="pass" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" name="text" value>
+                    </div>            
+                    
+                        </div>
                       </form>
-                    </form>
+                    </div>
+                  </main>
+                  </div>
+                </form>
                   <div class="form-check form-check-info text-left">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
                     <label class="form-check-label" for="flexCheckDefault">
