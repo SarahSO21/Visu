@@ -78,7 +78,7 @@ INSERT INTO `extrato` (`ID_extrato`, `DATA_extrato`, `TOTAL_PRECO`) VALUES
 CREATE TABLE `transacoes` (
   `ID` int(11) NOT NULL,
   `FK_PRODUTO` int(11) NOT NULL,
-  `FK_extrato` int(11) NOT NULL
+  `FK_extrato` int(11) NOT NULL 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
